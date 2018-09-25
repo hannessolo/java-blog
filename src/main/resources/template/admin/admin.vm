@@ -1,0 +1,6 @@
+#parse("template/layout.vm")
+#@mainLayout()
+<div>
+  Admin
+</div>
+#end

@@ -1,0 +1,46 @@
+#macro(mainLayout)
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>$title</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheets/shared.css">
+  </head>
+  <body>
+    <div id="menu" class="hidden">
+      <div id="menu-link">
+        HOME
+      </div>
+      <div id="menu-link">
+        ABOUT
+      </div>
+      <div id="menu-link">
+        CONTACT
+      </div>
+    </div>
+    <div id="main-container">
+      <div id="header">
+        <div id="hamburger">
+          <i class="material-icons icon-large">
+            menu
+          </i>
+        </div>
+        <div id="title">
+          <h1>blog.Blog</h1>
+        </div>
+      </div>
+      <div id="content">
+        $bodyContent
+      </div>
+      <div id="footer">
+        by Hannes Hertach
+      </div>
+    </div>
+
+  <script type="application/javascript" src="javascripts/headerAnimate.js"></script>
+  <script type="application/javascript" src="javascripts/showMenu.js"></script>
+
+  </body>
+  </html>
+#end
