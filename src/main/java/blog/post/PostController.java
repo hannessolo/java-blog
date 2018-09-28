@@ -10,7 +10,7 @@ import blog.util.ViewUtil;
 
 public class PostController {
 
-  public static Route serveMainPage = (Request request, Response response) -> {
+  public static Route showSinglePost = (Request request, Response response) -> {
 
     Map<String, Object> model = new HashMap<>();
     model.put("title", "blog.Blog");

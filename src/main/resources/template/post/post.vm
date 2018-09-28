@@ -1,6 +1,6 @@
 #parse("template/layout.vm")
 #@mainLayout()
-<div>
-  A blog.post
+<div id="container">
+  <h2>Title</h2>
 </div>
 #end

@@ -19,9 +19,9 @@ public class Blog {
       staticFiles.location("/public");
     }
 
-    get(Path.ADMIN_ROUTE, PostController.serveMainPage);
+    get(Path.ADMIN_ROUTE, IndexController.serveMainPage);
 
-    get(Path.POSTS_ROUTE, PostController.serveMainPage);
+    get(Path.SINGLE_POST_ROUTE, PostController.showSinglePost);
 
     get(Path.INDEX_ROUTE, IndexController.serveMainPage);
 

@@ -5,7 +5,7 @@
     <title>$title</title>
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="stylesheets/shared.css">
+    <link rel="stylesheet" href="/stylesheets/shared.css">
   </head>
   <body>
     <div id="menu" class="hidden">
@@ -27,7 +27,7 @@
           </i>
         </div>
         <div id="title">
-          <h1>blog.Blog</h1>
+          <h1>blog.</h1>
         </div>
       </div>
       <div id="content">
@@ -38,8 +38,8 @@
       </div>
     </div>
 
-  <script type="application/javascript" src="javascripts/headerAnimate.js"></script>
-  <script type="application/javascript" src="javascripts/showMenu.js"></script>
+  <script type="application/javascript" src="/javascripts/headerAnimate.js"></script>
+  <script type="application/javascript" src="/javascripts/showMenu.js"></script>
 
   </body>
   </html>

@@ -2,6 +2,7 @@ package blog.post;
 
 import blog.Dao;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Post {
 
@@ -26,7 +27,7 @@ public class Post {
   }
 
   public String getDateString() {
-    return date.toString();
+    return date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:MM"));
   }
 
   public void deletePost() {

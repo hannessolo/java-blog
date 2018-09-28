@@ -1,6 +1,8 @@
 #parse("template/layout.vm")
 #@mainLayout()
 <div>
-  Error: 404
+  <h4>
+    Error: 404
+  </h4>
 </div>
 #end

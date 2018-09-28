@@ -2,8 +2,8 @@ package blog.util;
 
 public interface Path {
   public static final String INDEX_ROUTE = "/";
-  public static final String ADMIN_ROUTE = "/blog/admin";
-  public static final String POSTS_ROUTE = "/posts";
+  public static final String ADMIN_ROUTE = "/admin";
+  public static final String SINGLE_POST_ROUTE = "/posts/:title";
   public static final String ERR_404_ROUTE = "*";
 
   public static interface Templates {
