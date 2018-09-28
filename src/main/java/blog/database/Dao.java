@@ -1,4 +1,4 @@
-package blog;
+package blog.database;
 
 import java.util.List;
 

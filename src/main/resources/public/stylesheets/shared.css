@@ -86,12 +86,12 @@ h3 {
   justify-content: center;
 }
 
-#container {
+.container {
   display: flex;
   flex-direction: column;
 }
 
-#container:first-child {
+.container:first-child {
   margin-top: 100px;
 }
 
@@ -193,4 +193,27 @@ h3 {
   margin-left: auto;
   margin-right: 20px;
   font-family: Futura, 'Trebuchet MS', sans-serif;
+}
+
+#main-text-container {
+  max-width: 900px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#post-title {
+  font-family: Futura, "Trebuchet MS", sans-serif;
+  font-size: 36pt;
+  margin-bottom: 0;
+}
+
+#post-date {
+  margin-left: 0;
+  margin-bottom: 60px;
+}
+
+#post-body {
+  line-height: 2;
+  font-size: 13pt;
+  font-family: "Merriweather", serif;
 }

@@ -1,6 +1,6 @@
 package blog.post;
 
-import blog.Dao;
+import blog.database.Dao;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
