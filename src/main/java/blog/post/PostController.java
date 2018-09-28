@@ -1,5 +1,6 @@
 package blog.post;
 
+import blog.Dao;
 import java.util.HashMap;
 import java.util.Map;
 import spark.Request;
@@ -15,7 +16,18 @@ public class PostController {
     Map<String, Object> model = new HashMap<>();
     model.put("title", "blog.Blog");
 
-    return ViewUtil.render(request, model, Templates.POSTS_ROUTE);
+    Dao<Post> dao = new PostDao();
+    ((PostDao) dao).addPost("testTitle", "TestContents");
+
+    Post post = dao.getItem(request.params("title"));
+
+    if (post == null) {
+      response.redirect("/404");
+    }
+
+    model.put("post", post);
+
+    return ViewUtil.render(request, model, Templates.SINGLE_POST_ROUTE);
 
   };
 
