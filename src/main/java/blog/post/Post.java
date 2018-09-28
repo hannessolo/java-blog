@@ -6,6 +6,14 @@ import java.time.format.DateTimeFormatter;
 
 public class Post {
 
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public void setContents(String contents) {
+    this.contents = contents;
+  }
+
   private String title;
   private String contents;
   private LocalDateTime date;
@@ -28,6 +36,14 @@ public class Post {
 
   public String getDateString() {
     return date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:MM"));
+  }
+
+  public LocalDateTime getDateObject() {
+    return date;
+  }
+
+  public Dao<Post> getDao() {
+    return dao;
   }
 
   public void deletePost() {

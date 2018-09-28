@@ -1,8 +1,11 @@
 #parse("template/layout.vm")
 #@mainLayout()
-<div>
-  <h4>
+<div class="container">
+  <h3>
     Error: 404
-  </h4>
+  </h3>
+  <h3>
+    The page you are looking for could not be found on the server.
+  </h3>
 </div>
 #end

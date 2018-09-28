@@ -9,15 +9,21 @@
   </head>
   <body>
     <div id="menu" class="hidden">
-      <div id="menu-link">
-        HOME
-      </div>
-      <div id="menu-link">
-        ABOUT
-      </div>
-      <div id="menu-link">
-        CONTACT
-      </div>
+      <a href="/">
+        <div id="menu-link">
+          HOME
+        </div>
+      </a>
+      <a href="/about">
+        <div id="menu-link">
+          ABOUT
+        </div>
+      </a>
+      <a href="/contact">
+        <div id="menu-link">
+          CONTACT
+        </div>
+      </a>
     </div>
     <div id="main-container">
       <div id="header">
