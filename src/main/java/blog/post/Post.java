@@ -21,6 +21,7 @@ public class Post {
   private Dao<Post> dao;
 
   public Post(int id, String title, String contents, LocalDateTime date, Dao<Post> dao) {
+    this.id = id;
     this.title = title;
     this.contents = contents;
     this.dao = dao;
@@ -36,7 +37,7 @@ public class Post {
   }
 
   public String getURI() {
-    return title.replace(' ', '_');
+    return Integer.toString(id) + "_" + title.replace(' ', '_');
   }
 
   public String getContents() {

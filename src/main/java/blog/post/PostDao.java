@@ -32,10 +32,27 @@ public class PostDao implements Dao<Post> {
 
   @Override
   public void removeItem(Post post) {
+
+    try (Statement stmt = conn.createStatement()) {
+
+      PreparedStatement ps = conn.prepareStatement(
+          "DELETE FROM posts WHERE id=? AND title=?;"
+      );
+
+      ps.setObject(1, post.getId());
+      ps.setObject(2, post.getTitle());
+
+      ps.execute();
+
+    } catch (SQLException e) {
+      throw new RuntimeException("Error creating statement.");
+    }
+
   }
 
   @Override
   public void addItem(Post post) {
+    addPost(post.getTitle(), post.getContents());
   }
 
   @Override
@@ -82,7 +99,6 @@ public class PostDao implements Dao<Post> {
 
     try (Statement stmt = conn.createStatement()) {
 
-
       PreparedStatement ps = conn.prepareStatement("SELECT * FROM post WHERE title=?;");
       ps.setObject(1, key);
       rs = ps.executeQuery();
@@ -113,7 +129,58 @@ public class PostDao implements Dao<Post> {
 
   }
 
+  public Post getItemByID(int key) {
+    ResultSet rs = null;
+
+    try (Statement stmt = conn.createStatement()) {
+
+      PreparedStatement ps = conn.prepareStatement("SELECT * FROM post WHERE id=?;");
+      ps.setObject(1, key);
+      rs = ps.executeQuery();
+
+      if (rs.next()) {
+        return new Post(
+            rs.getInt("id"),
+            rs.getString("title"),
+            rs.getString("body"),
+            rs.getTimestamp("dateAndTime").toLocalDateTime(),
+            this
+        );
+
+      }
+
+    } catch (SQLException e) {
+      throw new RuntimeException("Error trying to execute statement on database.");
+    } finally {
+      try {
+        rs.close();
+      } catch (SQLException | NullPointerException e) {
+
+      }
+
+    }
+
+    return null;
+
+  }
+
   public void addPost(String title, String contents) {
+
+    try (Statement stmt = conn.createStatement()) {
+
+      PreparedStatement ps = conn.prepareStatement(
+          "INSERT INTO post (title, body) VALUES (?, ?);"
+      );
+
+      ps.setObject(1, title);
+      ps.setObject(2, contents);
+
+      ps.execute();
+
+    } catch (SQLException e) {
+      throw new RuntimeException("Error trying to create statement.");
+    }
+
   }
 
   public List<Post> getPostsTruncated(int len) {
