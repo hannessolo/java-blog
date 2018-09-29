@@ -7,7 +7,7 @@
       </h3>
     </div>
     #foreach($post in $posts)
-      <a href="/posts/$post.getTitle()">
+      <a href="/posts/$post.getURI()">
         <div class="article-preview">
           <div class="row-container">
             <h3 class="preview-title">

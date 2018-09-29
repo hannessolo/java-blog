@@ -30,6 +30,10 @@ public class Post {
     return title;
   }
 
+  public String getURI() {
+    return title.replace(' ', '_');
+  }
+
   public String getContents() {
     return contents;
   }
