@@ -2,6 +2,7 @@ package blog;
 
 import static spark.Spark.*;
 
+import blog.admin.AdminController;
 import blog.post.PostController;
 
 import blog.util.Path;
@@ -19,7 +20,9 @@ public class Blog {
       staticFiles.location("/public");
     }
 
-    get(Path.ADMIN_ROUTE, IndexController.serveMainPage);
+    get(Path.ADMIN_ROUTE, AdminController.serveAdminPage);
+
+    post(Path.CREATE_POST_ROUTE, PostController.createPost);
 
     get(Path.SINGLE_POST_ROUTE, PostController.showSinglePost);
 

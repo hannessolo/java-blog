@@ -6,10 +6,10 @@ public interface Dao<K> {
 
   public void removeItem(K item);
 
-  public void addItem(K item);
+  public K addItem(K item);
 
   public List<K> getItems();
 
-  public K getItem(String key);
+  public K getItem(int id);
 
 }

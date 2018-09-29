@@ -33,7 +33,7 @@ public class PostDao implements Dao<Post> {
   @Override
   public void removeItem(Post post) {
 
-    try (Statement stmt = conn.createStatement()) {
+    try {
 
       PreparedStatement ps = conn.prepareStatement(
           "DELETE FROM posts WHERE id=? AND title=?;"
@@ -51,8 +51,8 @@ public class PostDao implements Dao<Post> {
   }
 
   @Override
-  public void addItem(Post post) {
-    addPost(post.getTitle(), post.getContents());
+  public Post addItem(Post post) {
+    return addPost(post.getTitle(), post.getContents());
   }
 
   @Override
@@ -94,48 +94,14 @@ public class PostDao implements Dao<Post> {
   }
 
   @Override
-  public Post getItem(String key) {
+  public Post getItem(int id) {
+
     ResultSet rs = null;
 
-    try (Statement stmt = conn.createStatement()) {
-
-      PreparedStatement ps = conn.prepareStatement("SELECT * FROM post WHERE title=?;");
-      ps.setObject(1, key);
-      rs = ps.executeQuery();
-
-      if (rs.next()) {
-        return new Post(
-            rs.getInt("id"),
-            rs.getString("title"),
-            rs.getString("body"),
-            rs.getTimestamp("dateAndTime").toLocalDateTime(),
-            this
-        );
-
-      }
-
-    } catch (SQLException e) {
-      throw new RuntimeException("Error trying to execute statement on database.");
-    } finally {
-      try {
-        rs.close();
-      } catch (SQLException | NullPointerException e) {
-
-      }
-
-    }
-
-    return null;
-
-  }
-
-  public Post getItemByID(int key) {
-    ResultSet rs = null;
-
-    try (Statement stmt = conn.createStatement()) {
+    try {
 
       PreparedStatement ps = conn.prepareStatement("SELECT * FROM post WHERE id=?;");
-      ps.setObject(1, key);
+      ps.setObject(1, id);
       rs = ps.executeQuery();
 
       if (rs.next()) {
@@ -164,18 +130,25 @@ public class PostDao implements Dao<Post> {
 
   }
 
-  public void addPost(String title, String contents) {
+  public Post addPost(String title, String contents) {
 
-    try (Statement stmt = conn.createStatement()) {
+    try {
 
       PreparedStatement ps = conn.prepareStatement(
-          "INSERT INTO post (title, body) VALUES (?, ?);"
+          "INSERT INTO post (title, body) VALUES (?, ?);", Statement.RETURN_GENERATED_KEYS
       );
 
       ps.setObject(1, title);
       ps.setObject(2, contents);
 
-      ps.execute();
+      ps.executeUpdate();
+
+      ResultSet rs = ps.getGeneratedKeys();
+      rs.next();
+      int post = rs.getInt(1);
+
+      return getItem(post);
+
 
     } catch (SQLException e) {
       throw new RuntimeException("Error trying to create statement.");

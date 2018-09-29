@@ -45,7 +45,7 @@ public class Post {
   }
 
   public String getDateString() {
-    return date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:MM"));
+    return date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
   }
 
   public LocalDateTime getDateObject() {
