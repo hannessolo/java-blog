@@ -14,12 +14,13 @@ public class Post {
     this.contents = contents;
   }
 
+  private int id;
   private String title;
   private String contents;
   private LocalDateTime date;
   private Dao<Post> dao;
 
-  public Post(String title, String contents, LocalDateTime date, Dao<Post> dao) {
+  public Post(int id, String title, String contents, LocalDateTime date, Dao<Post> dao) {
     this.title = title;
     this.contents = contents;
     this.dao = dao;
@@ -28,6 +29,10 @@ public class Post {
 
   public String getTitle() {
     return title;
+  }
+
+  public int getId() {
+    return id;
   }
 
   public String getURI() {
