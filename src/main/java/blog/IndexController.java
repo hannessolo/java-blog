@@ -20,7 +20,7 @@ public class IndexController {
 
     model.put("posts", indexPostsDao.getPostsTruncated(600));
 
-    return ViewUtil.render(request, model, Path.Templates.INDEX_ROUTE);
+    return ViewUtil.render(request, model, Path.Templates.INDEX_TEMPLATE);
 
   };
 

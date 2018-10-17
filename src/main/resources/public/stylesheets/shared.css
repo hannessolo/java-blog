@@ -12,6 +12,10 @@ a {
   color: black;
 }
 
+textarea {
+  resize: vertical;
+}
+
 #main-container {
   align-items: stretch;
   flex-direction: column;
@@ -221,4 +225,109 @@ a {
   line-height: 2;
   font-size: 13pt;
   font-family: "Merriweather", serif;
+}
+
+.admin-button {
+  background-image:none;
+  background-color:transparent;
+  outline: none;
+  -webkit-appearance: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  margin-left: 40px;
+  margin-bottom: 20px;
+  padding: 12px;
+  font-family: Futura, "Trebuchet MS", sans-serif;
+  font-size: 12pt;
+  border-radius: 7px;
+}
+
+.admin-button:active {
+  transform: scale(0.98);
+}
+
+.red {
+  border-color: red;
+}
+
+.red:hover {
+  background: red;
+}
+
+.blue {
+  border-color: #4896ff;
+}
+
+.blue:hover {
+  background: #4896ff;
+}
+
+.green {
+  border-color: #19ff81;
+}
+
+.green:hover {
+  background: #19ff81;
+}
+
+.position-left {
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.form-label {
+  font-family: Futura, "Trebuchet MS", sans-serif;
+  font-size: 16pt;
+  margin-bottom: 5px;
+}
+
+.input-box {
+  background-image:none;
+  background-color:transparent;
+  outline: none;
+  -webkit-appearance: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  padding: 5px;
+  font-family: Merriweather, serif;
+  border: 1px solid #828282;
+  border-radius: 3px;
+  font-size: 14pt;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.no-margin-full-width {
+  margin: 0;
+  width: 100%;
+}
+
+.subhead {
+  color: #828282;
+  font-family: Futura, "Trebuchet MS", sans-serif;
+  margin-bottom: 10px;
+}
+
+.multiline-input-box {
+  background-image:none;
+  background-color:transparent;
+  outline: none;
+  -webkit-appearance: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  padding: 5px;
+  font-family: Merriweather, serif;
+  border: 1px solid #828282;
+  border-radius: 3px;
+  font-size: 14pt;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.cont-90 {
+  width: 90vw;
+  max-width: 700px;
 }

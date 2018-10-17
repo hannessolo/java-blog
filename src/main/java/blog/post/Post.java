@@ -3,6 +3,9 @@ package blog.post;
 import blog.database.Dao;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import org.commonmark.node.Node;
+import org.commonmark.parser.Parser;
+import org.commonmark.renderer.html.HtmlRenderer;
 
 public class Post {
 
@@ -40,8 +43,18 @@ public class Post {
     return Integer.toString(id) + "_" + title.replace(' ', '_');
   }
 
-  public String getContents() {
+  public String getContent() {
     return contents;
+  }
+
+  public String getPrettyContent() {
+    return prettify(contents);
+  }
+
+  private String prettify(String contents) {
+    Parser parser = Parser.builder().build();
+    Node document = parser.parse(contents);
+    return HtmlRenderer.builder().build().render(document);
   }
 
   public String getDateString() {

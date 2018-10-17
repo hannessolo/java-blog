@@ -1,6 +1,28 @@
 #parse("template/layout.vm")
 #@mainLayout()
-<div>
-  Admin
+<div class="container">
+  <div id="content-head">
+    <div class="row-container">
+      <h3>Admin Page:</h3>
+      <button class="admin-button position-left green">
+        <a href="/posts/create">New Post</a>
+      </button>
+    </div>
+  </div>
+  #foreach($post in $posts)
+    <div class="article-preview">
+      <div class="row-container">
+        <h3 class="preview-title">
+          <a href="/posts/$post.getURI()">$post.getTitle()</a>
+        </h3>
+        <span class="preview-date">$post.getDateString()</span>
+      </div>
+      <div class="row-container">
+        <button class="admin-button blue">Edit</button>
+        <button class="admin-button red delete-button" postURI="$post.getURI()">Delete</button>
+      </div>
+    </div>
+  #end
+  <script type="application/javascript" src="/javascripts/adminScript.js"></script>
 </div>
 #end

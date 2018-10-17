@@ -36,7 +36,7 @@ public class PostDao implements Dao<Post> {
     try {
 
       PreparedStatement ps = conn.prepareStatement(
-          "DELETE FROM posts WHERE id=? AND title=?;"
+          "DELETE FROM post WHERE id=? AND title=?;"
       );
 
       ps.setObject(1, post.getId());
@@ -52,7 +52,7 @@ public class PostDao implements Dao<Post> {
 
   @Override
   public Post addItem(Post post) {
-    return addPost(post.getTitle(), post.getContents());
+    return addPost(post.getTitle(), post.getContent());
   }
 
   @Override
@@ -165,7 +165,7 @@ public class PostDao implements Dao<Post> {
       truncatedPosts.add(new Post(
           post.getId(),
           post.getTitle(),
-          post.getContents().substring(0, Math.min(post.getContents().length(), len)) + "...",
+          post.getContent().substring(0, Math.min(post.getContent().length(), len)) + "...",
           post.getDateObject(),
           post.getDao()
       ));

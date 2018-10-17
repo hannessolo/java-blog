@@ -28,7 +28,7 @@ public class ViewUtil {
 
     response.status(HttpStatus.NOT_FOUND_404);
 
-    return vte.render(new ModelAndView(model, Path.Templates.ERR_404_ROUTE));
+    return vte.render(new ModelAndView(model, Path.Templates.ERR_404_TEMPLATE));
   };
 
 }

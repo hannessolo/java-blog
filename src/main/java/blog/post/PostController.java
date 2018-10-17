@@ -29,7 +29,7 @@ public class PostController {
     model.put("title", post.getTitle());
     model.put("post", post);
 
-    return ViewUtil.render(request, model, Templates.SINGLE_POST_ROUTE);
+    return ViewUtil.render(request, model, Templates.SINGLE_POST_TEMPLATE);
 
   };
 
@@ -60,6 +60,39 @@ public class PostController {
     }
 
     response.redirect(post.getURI());
+
+    return null;
+
+  };
+
+  public static Route serveCreatePostPage = (Request request, Response response) -> {
+
+    AdminController.redirectIfNotLoggedIn(request, response);
+
+    Map<String, Object> model = new HashMap<>();
+    model.put("title", "Create New Post");
+
+    return ViewUtil.render(request, model, Templates.CREATE_POST_TEMPLATE);
+
+  };
+
+  public static Route serveEditPostPage = (Request request, Response response) -> {
+
+
+
+  };
+
+  public static Route deletePost = (Request request, Response response) -> {
+
+    AdminController.redirectIfNotLoggedIn(request, response);
+
+    Dao<Post> dao = new PostDao();
+
+    Post post = dao.getItem(Utilities.parseUriToPostId(request.params("title")));
+
+    post.deletePost();
+
+    response.redirect("/admin?success=true");
 
     return null;
 

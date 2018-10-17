@@ -15,7 +15,7 @@
             </h3>
             <span class="preview-date">$post.getDateString()</span>
           </div>
-          <p class="preview-body">$post.getContents()</p>
+          <div class="preview-body">$post.getPrettyContent()</div>
         </div>
       </a>
     #end

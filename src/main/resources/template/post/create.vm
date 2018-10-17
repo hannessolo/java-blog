@@ -1,0 +1,20 @@
+#parse("template/layout.vm")
+#@mainLayout()
+<div class="container cont-90">
+  <div id="content-head">
+    <h3>
+      Create a new article:
+    </h3>
+    <form action="/posts/create" method="post">
+      <div class="col-container">
+        <label class="form-label" for="title">Title:</label>
+        <input class="input-box" type="text" name="title" autocomplete="off">
+        <label class="form-label" for="body">Content:</label>
+        <span class="subhead">Supports Markdown.</span>
+        <textarea class="multiline-input-box" type="text" name="body"></textarea>
+        <input class="admin-button no-margin-full-width" type="submit">
+      </div>
+    </form>
+  </div>
+</div>
+#end

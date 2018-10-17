@@ -22,9 +22,13 @@ public class Blog {
 
     get(Path.ADMIN_ROUTE, AdminController.serveAdminPage);
 
+    get(Path.CREATE_POST_ROUTE, PostController.serveCreatePostPage);
+
     post(Path.CREATE_POST_ROUTE, PostController.createPost);
 
     get(Path.SINGLE_POST_ROUTE, PostController.showSinglePost);
+
+    delete(Path.SINGLE_POST_ROUTE, PostController.deletePost);
 
     get(Path.INDEX_ROUTE, IndexController.serveMainPage);
 
