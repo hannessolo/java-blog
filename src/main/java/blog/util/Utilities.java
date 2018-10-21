@@ -2,6 +2,7 @@ package blog.util;
 
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Utilities {
@@ -59,6 +60,16 @@ public class Utilities {
 
     return newString.toString();
 
+  }
+
+  public static <K> List<K> reverseList(List<K> list) {
+    int len = list.size();
+    for (int i = 0; i < len / 2; i++) {
+      K swap = list.get(len - 1 - i);
+      list.set(len - 1 - i, list.get(i));
+      list.set(i, swap);
+    }
+    return list;
   }
 
 }

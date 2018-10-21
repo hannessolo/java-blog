@@ -26,6 +26,10 @@ public class Blog {
 
     post(Path.CREATE_POST_ROUTE, PostController.createPost);
 
+    get(Path.EDIT_POST_ROUTE, PostController.serveEditPostPage);
+
+    post(Path.EDIT_POST_ROUTE, PostController.editPost);
+
     get(Path.SINGLE_POST_ROUTE, PostController.showSinglePost);
 
     delete(Path.SINGLE_POST_ROUTE, PostController.deletePost);

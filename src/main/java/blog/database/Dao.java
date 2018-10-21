@@ -12,4 +12,6 @@ public interface Dao<K> {
 
   public K getItem(int id);
 
+  public K editItem(int id, K item);
+
 }

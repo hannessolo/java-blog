@@ -18,7 +18,7 @@
         <span class="preview-date">$post.getDateString()</span>
       </div>
       <div class="row-container">
-        <button class="admin-button blue">Edit</button>
+        <button class="admin-button blue"><a href="/posts/$post.getURI()/edit">Edit</a></button>
         <button class="admin-button red delete-button" postURI="$post.getURI()">Delete</button>
       </div>
     </div>

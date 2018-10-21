@@ -130,6 +130,32 @@ public class PostDao implements Dao<Post> {
 
   }
 
+  @Override
+  public Post editItem(int id, Post item) {
+
+    PreparedStatement ps = null;
+
+    try {
+      ps = conn.prepareStatement("UPDATE post SET title=?, body=? WHERE id=?");
+
+      ps.setString(1, item.getTitle());
+      ps.setString(2, item.getContent());
+      ps.setInt(3, id);
+
+      ps.executeUpdate();
+
+    } catch (SQLException e) {
+      throw new RuntimeException("Error creating SQL statement");
+    } finally {
+      try {
+        ps.close();
+      } catch (SQLException | NullPointerException e) {
+
+      }
+    }
+    return item;
+  }
+
   public Post addPost(String title, String contents) {
 
     try {
@@ -175,4 +201,13 @@ public class PostDao implements Dao<Post> {
 
   }
 
+  public Post editPost(int id, String title, String body) {
+    Post post = getItem(id);
+
+    post.setTitle(title);
+    post.setContents(body);
+
+    return editItem(id, post);
+
+  }
 }

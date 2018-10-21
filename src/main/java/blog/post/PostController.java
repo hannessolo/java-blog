@@ -78,7 +78,47 @@ public class PostController {
 
   public static Route serveEditPostPage = (Request request, Response response) -> {
 
+    AdminController.redirectIfNotLoggedIn(request, response);
 
+    Dao<Post> dao = new PostDao();
+    Post post = dao.getItem(Utilities.parseUriToPostId(request.params("title")));
+
+    Map<String, Object> model = new HashMap<>();
+    model.put("title", "Edit: ");
+    model.put("post", post);
+
+    return ViewUtil.render(request, model, Templates.EDIT_POST_TEMPLATE);
+
+  };
+
+  public static Route editPost = (Request request, Response response) -> {
+    AdminController.redirectIfNotLoggedIn(request, response);
+
+    PostDao dao = new PostDao();
+    Map<String, Object> body;
+
+    try {
+      body = Utilities.parseUrlEncodedBody(request.body());
+    } catch (UnsupportedEncodingException e) {
+      response.redirect("/admin?success=false", 400);
+      return null;
+    }
+
+    if (!body.containsKey("title") || !body.containsKey("body")) {
+      response.redirect("/admin?success=false", 400);
+      return null;
+    }
+
+    Post post = dao.editPost((int)body.get("id"), (String)body.get("title"), (String)body.get("body"));
+
+    if (post == null) {
+      response.redirect("/admin?success=false", 400);
+      return null;
+    }
+
+    response.redirect("/posts/" + post.getURI());
+
+    return null;
 
   };
 

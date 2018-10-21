@@ -1,6 +1,7 @@
 package blog;
 
 import blog.post.PostDao;
+import blog.util.Utilities;
 import java.util.HashMap;
 import java.util.Map;
 import spark.Request;
@@ -18,7 +19,7 @@ public class IndexController {
 
     PostDao indexPostsDao = new PostDao();
 
-    model.put("posts", indexPostsDao.getPostsTruncated(600));
+    model.put("posts", Utilities.reverseList(indexPostsDao.getPostsTruncated(600)));
 
     return ViewUtil.render(request, model, Path.Templates.INDEX_TEMPLATE);
 
