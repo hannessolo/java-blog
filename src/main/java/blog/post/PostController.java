@@ -84,7 +84,7 @@ public class PostController {
     Post post = dao.getItem(Utilities.parseUriToPostId(request.params("title")));
 
     Map<String, Object> model = new HashMap<>();
-    model.put("title", "Edit: ");
+    model.put("title", "Edit: " + post.getTitle());
     model.put("post", post);
 
     return ViewUtil.render(request, model, Templates.EDIT_POST_TEMPLATE);
@@ -104,7 +104,7 @@ public class PostController {
       return null;
     }
 
-    if (!body.containsKey("title") || !body.containsKey("body")) {
+    if (!body.containsKey("title") || !body.containsKey("body") || !body.containsKey("id")) {
       response.redirect("/admin?success=false", 400);
       return null;
     }

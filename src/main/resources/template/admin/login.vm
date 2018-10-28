@@ -1,0 +1,19 @@
+#parse("template/layout.vm")
+#@mainLayout()
+<div class="container cont-90">
+  <div id="content-head">
+    <h3>
+      Create a new article:
+    </h3>
+    <form action="/admin/login" method="post">
+      <div class="col-container">
+        <label class="form-label" for="username">Username:</label>
+        <input class="input-box" type="text" name="username">
+        <label class="form-label" for="password">Password:</label>
+        <input class="input-box" type="password" name="password">
+        <input class="admin-button no-margin-full-width" type="submit">
+      </div>
+    </form>
+  </div>
+</div>
+#end
