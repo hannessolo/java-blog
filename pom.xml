@@ -50,7 +50,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>blog.Blog</mainClass>
+                            <mainClass>com.hanneshertach.blog.Blog</mainClass>
                             <classpathPrefix>dependency-jars/</classpathPrefix>
                         </manifest>
                     </archive>
@@ -81,7 +81,7 @@
                             </descriptorRefs>
                             <archive>
                                 <manifest>
-                                    <mainClass>blog.Blog</mainClass>
+                                    <mainClass>com.hanneshertach.blog.Blog</mainClass>
                                 </manifest>
                             </archive>
                         </configuration>

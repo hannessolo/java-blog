@@ -1,16 +1,16 @@
-package blog.post;
+package com.hanneshertach.blog.post;
 
-import blog.admin.AdminController;
-import blog.database.Dao;
+import com.hanneshertach.blog.admin.AdminController;
+import com.hanneshertach.blog.database.Dao;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 import spark.Request;
 import spark.Response;
 import spark.Route;
-import blog.util.Path.Templates;
-import blog.util.ViewUtil;
-import blog.util.Utilities;
+import com.hanneshertach.blog.util.Path.Templates;
+import com.hanneshertach.blog.util.ViewUtil;
+import com.hanneshertach.blog.util.Utilities;
 
 public class PostController {
 

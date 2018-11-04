@@ -1,5 +1,5 @@
 # Blog
-Repository containing the code for the blog to be hosted at blog.hanneshertach.com in the future.
+Repository containing the code for the com.hanneshertach.blog to be hosted at com.hanneshertach.blog.hanneshertach.com in the future.
 
 Built using the JavaSpark web framework.
 

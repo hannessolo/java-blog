@@ -1,4 +1,4 @@
-package blog.util;
+package com.hanneshertach.blog.util;
 
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;

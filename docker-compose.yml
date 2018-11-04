@@ -6,6 +6,10 @@ services:
     build: .
     ports:
       - "4567:4567"
+    labels:
+      caddy.targetpath: "/"
+      caddy.targetport: "4567"
+      caddy.address: "blog.hanneshertach.com"
   mysql:
     image: mysql
     ports:

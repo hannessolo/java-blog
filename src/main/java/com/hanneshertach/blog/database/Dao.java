@@ -1,4 +1,4 @@
-package blog.database;
+package com.hanneshertach.blog.database;
 
 import java.util.List;
 

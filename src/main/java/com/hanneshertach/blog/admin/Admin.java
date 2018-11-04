@@ -1,4 +1,4 @@
-package blog.admin;
+package com.hanneshertach.blog.admin;
 
 public class Admin {
 

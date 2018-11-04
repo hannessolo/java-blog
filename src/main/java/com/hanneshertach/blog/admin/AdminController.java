@@ -1,8 +1,8 @@
-package blog.admin;
+package com.hanneshertach.blog.admin;
 
-import blog.post.Post;
-import blog.post.PostDao;
-import blog.util.Utilities;
+import com.hanneshertach.blog.post.Post;
+import com.hanneshertach.blog.post.PostDao;
+import com.hanneshertach.blog.util.Utilities;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -14,8 +14,8 @@ import java.util.Map;
 import spark.Request;
 import spark.Response;
 import spark.Route;
-import blog.util.Path.Templates;
-import blog.util.ViewUtil;
+import com.hanneshertach.blog.util.Path.Templates;
+import com.hanneshertach.blog.util.ViewUtil;
 
 public class AdminController {
 
@@ -42,7 +42,7 @@ public class AdminController {
   public static Route serveLoginPage = (Request request, Response response) -> {
 
     if (request.session(false) != null) {
-      response.redirect(request.pathInfo());
+      response.redirect("/");
       return null;
     }
 
@@ -56,7 +56,7 @@ public class AdminController {
   public static Route login = (Request request, Response response) -> {
 
     if (request.session(false) != null) {
-      response.redirect(request.pathInfo());
+      response.redirect("/");
       return null;
     }
 
@@ -89,6 +89,7 @@ public class AdminController {
     request.session().attribute("id", admin.getId());
     request.session().maxInactiveInterval(500);
 
+    response.redirect("/admin");
     return null;
   };
 

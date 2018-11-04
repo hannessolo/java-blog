@@ -1,12 +1,12 @@
-package blog;
+package com.hanneshertach.blog;
 
 import static spark.Spark.*;
 
-import blog.admin.AdminController;
-import blog.post.PostController;
+import com.hanneshertach.blog.admin.AdminController;
+import com.hanneshertach.blog.post.PostController;
 
-import blog.util.Path;
-import blog.util.ViewUtil;
+import com.hanneshertach.blog.util.Path;
+import com.hanneshertach.blog.util.ViewUtil;
 
 public class Blog {
 

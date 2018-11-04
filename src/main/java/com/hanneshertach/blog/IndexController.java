@@ -1,14 +1,14 @@
-package blog;
+package com.hanneshertach.blog;
 
-import blog.post.PostDao;
-import blog.util.Utilities;
+import com.hanneshertach.blog.post.PostDao;
+import com.hanneshertach.blog.util.Utilities;
 import java.util.HashMap;
 import java.util.Map;
 import spark.Request;
 import spark.Response;
 import spark.Route;
-import blog.util.Path;
-import blog.util.ViewUtil;
+import com.hanneshertach.blog.util.Path;
+import com.hanneshertach.blog.util.ViewUtil;
 
 public class IndexController {
 

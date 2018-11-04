@@ -1,6 +1,6 @@
-package blog.post;
+package com.hanneshertach.blog.post;
 
-import blog.database.Dao;
+import com.hanneshertach.blog.database.Dao;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import org.commonmark.node.Node;

@@ -1,6 +1,6 @@
-package blog.admin;
+package com.hanneshertach.blog.admin;
 
-import blog.database.Dao;
+import com.hanneshertach.blog.database.Dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -21,7 +21,7 @@ public class AdminDao implements Dao<Admin> {
     }
 
     try {
-      conn = DriverManager.getConnection("jdbc:mysql://localhost/blog?user=root");
+      conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/blog", "root", "");
     } catch (Exception e) {
       throw new RuntimeException("Error connecting to database.");
     }
