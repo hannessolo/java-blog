@@ -331,3 +331,10 @@ textarea {
   width: 90vw;
   max-width: 700px;
 }
+
+#msg {
+  color: #828282;
+  font-family: Futura, "Trebuchet MS", sans-serif;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

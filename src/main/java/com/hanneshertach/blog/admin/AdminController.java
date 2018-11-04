@@ -49,6 +49,12 @@ public class AdminController {
     Map<String, Object> model = new HashMap<>();
     model.put("title", "Login");
 
+    String success = request.queryMap().get("success").value();
+
+    if (success != null && success.equals("false")) {
+      model.put("message", "Incorrect username and/or password.");
+    }
+
     return ViewUtil.render(request, model, Templates.LOGIN_TEMPLATE);
 
   };
@@ -81,7 +87,7 @@ public class AdminController {
     Admin admin = dao.getAdminByUsernameAndPassword(username, password);
 
     if (admin == null) {
-      response.redirect("/", 403);
+      response.redirect("/admin/login?success=false");
       return null;
     }
 
