@@ -99,6 +99,19 @@ public class AdminController {
     return null;
   };
 
+  public static Route logout = (Request request, Response response) -> {
+
+    if (request.session(false) == null) {
+      response.redirect("/");
+    }
+
+    request.session(false).invalidate();
+
+    response.redirect("/");
+    return null;
+
+  };
+
   public static void redirectIfNotLoggedIn(Request request, Response response) {
 
     if (request.session(false) == null) {

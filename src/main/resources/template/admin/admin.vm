@@ -4,9 +4,14 @@
   <div id="content-head">
     <div class="row-container">
       <h3>Admin Page:</h3>
-      <button class="admin-button position-left green">
-        <a href="/posts/create">New Post</a>
-      </button>
+      <div class="position-left">
+        <button class="admin-button green">
+          <a href="/posts/create">New Post</a>
+        </button>
+        <button class="admin-button red">
+          <a href="/admin/logout">Logout</a>
+        </button>
+      </div>
     </div>
   </div>
   #foreach($post in $posts)

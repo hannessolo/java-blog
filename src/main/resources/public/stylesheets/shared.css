@@ -12,6 +12,10 @@ a {
   color: black;
 }
 
+img {
+  width: 100%;
+}
+
 textarea {
   resize: vertical;
 }

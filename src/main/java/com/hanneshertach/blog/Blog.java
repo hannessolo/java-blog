@@ -5,6 +5,7 @@ import static spark.Spark.*;
 import com.hanneshertach.blog.admin.AdminController;
 import com.hanneshertach.blog.post.PostController;
 
+import com.hanneshertach.blog.staticpage.StaticPageController;
 import com.hanneshertach.blog.util.Path;
 import com.hanneshertach.blog.util.ViewUtil;
 
@@ -25,6 +26,8 @@ public class Blog {
     get(Path.LOGIN_ROUTE, AdminController.serveLoginPage);
     post(Path.LOGIN_ROUTE, AdminController.login);
 
+    get(Path.LOGOUT_ROUTE, AdminController.logout);
+
     get(Path.CREATE_POST_ROUTE, PostController.serveCreatePostPage);
     post(Path.CREATE_POST_ROUTE, PostController.createPost);
 
@@ -33,6 +36,10 @@ public class Blog {
 
     get(Path.SINGLE_POST_ROUTE, PostController.showSinglePost);
     delete(Path.SINGLE_POST_ROUTE, PostController.deletePost);
+
+    get(Path.ABOUT_ROUTE, StaticPageController.serveAboutPage);
+
+    get(Path.CONTACT_ROUTE, StaticPageController.serveContactPage);
 
     get(Path.INDEX_ROUTE, IndexController.serveMainPage);
 
