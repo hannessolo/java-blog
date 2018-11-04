@@ -11,6 +11,8 @@ public interface Path {
   public static final String ABOUT_ROUTE = "/about";
   public static final String CONTACT_ROUTE = "/contact";
   public static final String LOGOUT_ROUTE = "/admin/logout";
+  public static final String MEDIA_UPLOAD_ROUTE = "/media/upload";
+  public static final String MEDIA_DELETE_ROUTE = "/media/:id/delete";
 
   public static interface Templates {
     public static final String INDEX_TEMPLATE = "template/index/index.vm";

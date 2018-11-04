@@ -3,6 +3,7 @@ package com.hanneshertach.blog;
 import static spark.Spark.*;
 
 import com.hanneshertach.blog.admin.AdminController;
+import com.hanneshertach.blog.media.MediaController;
 import com.hanneshertach.blog.post.PostController;
 
 import com.hanneshertach.blog.staticpage.StaticPageController;
@@ -36,6 +37,8 @@ public class Blog {
 
     get(Path.SINGLE_POST_ROUTE, PostController.showSinglePost);
     delete(Path.SINGLE_POST_ROUTE, PostController.deletePost);
+
+    post(Path.MEDIA_UPLOAD_ROUTE, "multipart/form-data", MediaController.uploadMedia);
 
     get(Path.ABOUT_ROUTE, StaticPageController.serveAboutPage);
 

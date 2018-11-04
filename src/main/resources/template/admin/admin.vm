@@ -28,6 +28,16 @@
       </div>
     </div>
   #end
+  <div class = "row-container left-20 top-20">
+    <form action="/media/upload" method="post" enctype="multipart/form-data">
+      <div class="col-container">
+        <label class="form-label" for="body">Upload a file:</label>
+        <span class="subhead">File will appear under /public.</span>
+        <input type="file" name="file">
+        <input class="admin-button no-margin-full-width top-20" type="submit">
+      </div>
+    </form>
+  </div>
   <script type="application/javascript" src="/javascripts/adminScript.js"></script>
 </div>
 #end

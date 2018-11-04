@@ -1,0 +1,7 @@
+#parse("template/layout.vm")
+#@mainLayout()
+<div class="container" id="main-text-container">
+  <h2 id="post-title">Contact Me</h2>
+
+</div>
+#end
