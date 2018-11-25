@@ -115,7 +115,7 @@ public class AdminController {
   public static void redirectIfNotLoggedIn(Request request, Response response) {
 
     if (request.session(false) == null) {
-      //response.redirect("/admin/login");
+      response.redirect("/admin/login");
     }
 
   }

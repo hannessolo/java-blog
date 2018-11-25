@@ -39,6 +39,7 @@ public class Blog {
     delete(Path.SINGLE_POST_ROUTE, PostController.deletePost);
 
     post(Path.MEDIA_UPLOAD_ROUTE, "multipart/form-data", MediaController.uploadMedia);
+    get(Path.GET_MEDIA_ROUTE, MediaController.serveMedia);
 
     get(Path.ABOUT_ROUTE, StaticPageController.serveAboutPage);
 

@@ -150,7 +150,7 @@ public class PostDao implements Dao<Post> {
       try {
         ps.close();
       } catch (SQLException | NullPointerException e) {
-
+        e.printStackTrace();
       }
     }
     return item;
