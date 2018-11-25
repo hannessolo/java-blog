@@ -3,4 +3,4 @@ Repository containing the code for the blog to be hosted at blog.hanneshertach.c
 
 Built using the JavaSpark web framework.
 
-Build using `mvn package`, deploy with `docker-compose up`.
+Build using `mvn package`.
