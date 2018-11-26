@@ -3,7 +3,7 @@ Repository containing the code for the blog to be hosted at blog.hanneshertach.c
 
 Built using the JavaSpark web framework.
 
-You can easily try using this yourself. Just clone the repo and run teh following:
+You can easily try using this yourself. Just clone the repo and run the following:
 
 Build using `mvn package`, then run `docker-compose up`. You can view the website running on `localhost:4567`.
 
