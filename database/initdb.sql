@@ -26,3 +26,7 @@ CREATE TABLE IF NOT EXISTS admin (
   password VARCHAR(255) NOT NULL,
   PRIMARY KEY(id)
 );
+
+
+/* Default username/password is "admin", "testpwd". Please change as soon as deployed. */
+INSERT IGNORE INTO admin (id, username, password) VALUE (1, "admin", "eom48lPu43pjYSGzX3VE9c5IcEFhKttV4oFgyD6CwlU=");

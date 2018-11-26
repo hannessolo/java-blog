@@ -2,7 +2,7 @@ version: '3'
 services:
   web:
     depends_on:
-      - mysql
+      - db
     build: .
     ports:
       - "4567:4567"
@@ -10,13 +10,11 @@ services:
       caddy.targetpath: "/"
       caddy.targetport: "4567"
       caddy.address: "blog.hanneshertach.com"
-  mysql:
+  db:
     image: mysql
-    ports:
-    - "3306:3306"
     volumes:
       - ./database/db_data:/var/lib/mysql
       - ./database:/etc/database-init
     command: --init-file /etc/database-init/initdb.sql
     environment:
-      MYSQL_ROOT_PASSWORD: wp
+      MYSQL_ROOT_HOST: "%"

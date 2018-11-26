@@ -21,7 +21,7 @@ public class AdminDao implements Dao<Admin> {
     }
 
     try {
-      conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/blog", "root", "");
+      conn = DriverManager.getConnection("jdbc:mysql://db:3306/blog", "root", "");
     } catch (Exception e) {
       throw new RuntimeException("Error connecting to database.");
     }
