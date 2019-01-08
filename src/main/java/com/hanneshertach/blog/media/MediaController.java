@@ -1,11 +1,17 @@
 package com.hanneshertach.blog.media;
 
+import com.hanneshertach.blog.admin.AdminController;
+import com.hanneshertach.blog.database.Dao;
+import com.hanneshertach.blog.util.Path.Templates;
+import com.hanneshertach.blog.util.ViewUtil;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
@@ -16,9 +22,11 @@ import spark.utils.IOUtils;
 
 public class MediaController {
 
-  private static final String FILE_FOLDER_ROUTE = "/tmp/";
+  static final String FILE_FOLDER_ROUTE = "/tmp/uploads/";
 
   public static Route uploadMedia = (Request request, Response response) -> {
+
+    AdminController.redirectIfNotLoggedIn(request, response);
 
     request.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement(FILE_FOLDER_ROUTE));
     Part filePart = request.raw().getPart("file");
@@ -57,6 +65,34 @@ public class MediaController {
     raw.getOutputStream().close();
 
     return raw;
+  };
+
+  public static Route viewAllMedia = (Request request, Response response) -> {
+
+    AdminController.redirectIfNotLoggedIn(request, response);
+
+    Map<String, Object> model = new HashMap<>();
+    model.put("title", "blog. media");
+
+    Dao<String> mediaDao = new MediaDao();
+
+    model.put("media", mediaDao.getItems());
+
+    return ViewUtil.render(request, model, Templates.MEDIA_VIEW_TEMPLATE);
+
+  };
+
+  public static Route deleteMediaItem = (Request request, Response response) -> {
+
+    AdminController.redirectIfNotLoggedIn(request, response);
+
+    Dao<String> mediaDao = new MediaDao();
+
+    mediaDao.removeItem(request.params("id"));
+
+    response.redirect("/media/view");
+    return null;
+
   };
 
 }

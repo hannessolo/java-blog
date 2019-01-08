@@ -1,0 +1,18 @@
+#parse("template/layout.vm")
+#@mainLayout()
+<div class="container">
+  #foreach($mediaItem in $media)
+    <div class="article-preview">
+      <div class="row-container">
+        <h3 class="preview-title">
+          <a href="/media/view/$mediaItem">$mediaItem</a>
+        </h3>
+      </div>
+      <div class="row-container">
+        <button class="admin-button red delete-button" mediaName="$mediaItem">Delete</button>
+      </div>
+    </div>
+  #end
+  <script type="application/javascript" src="/javascripts/mediaScript.js"></script>
+</div>
+#end

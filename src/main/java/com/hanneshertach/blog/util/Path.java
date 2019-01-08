@@ -13,7 +13,9 @@ public interface Path {
   String LOGOUT_ROUTE = "/admin/logout";
   String MEDIA_UPLOAD_ROUTE = "/media/upload";
   String MEDIA_DELETE_ROUTE = "/media/:id/delete";
+  String MEDIA_VIEW_ROUTE = "/media/view";
   String GET_MEDIA_ROUTE = "/media/view/:file";
+  String PASSWORD_RESET_PATH = "/admin/password-reset";
 
   interface Templates {
     String INDEX_TEMPLATE = "template/index/index.vm";
@@ -25,6 +27,7 @@ public interface Path {
     String LOGIN_TEMPLATE = "template/admin/login.vm";
     String ABOUT_TEMPLATE = "template/static/about.vm";
     String CONTACT_TEMPLATE = "template/static/contact.vm";
+    String MEDIA_VIEW_TEMPLATE = "template/media/view.vm";
   }
 
 }
