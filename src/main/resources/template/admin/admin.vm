@@ -38,6 +38,26 @@
       </div>
     </form>
   </div>
+  <div class = "row-container left-20 top-20">
+    <button class="admin-button no-margin-full-width top-20">
+      <a href="/media/view">View Uploads</a>
+    </button>
+  </div>
+  <div class="row-container left-20 top-20">
+    <form action="/admin/password-reset" method="post">
+      <div class="col-container">
+        <label class="form-label" for="body">Change your password:</label>
+        <label class="subhead pwd-box" for="prev-pwd">Enter your current password</label>
+        <input type="password" class="input-box pwd-box" name="prev-pwd">
+        <label class="subhead" for="prev-pwd">Enter your new password</label>
+        <input type="password" class="input-box pwd-box" name="next-pwd">
+        <label class="subhead" for="conf-pwd">Confirm new password</label>
+        <input type="password" class="input-box pwd-box" name="conf-pwd">
+        <input class="admin-button no-margin-full-width top-20" type="submit">
+      </div>
+    </form>
+  </div>
+
   <script type="application/javascript" src="/javascripts/adminScript.js"></script>
 </div>
 #end

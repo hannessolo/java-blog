@@ -101,13 +101,54 @@ public class AdminController {
 
   public static Route logout = (Request request, Response response) -> {
 
-    if (request.session(false) == null) {
-      response.redirect("/");
-    }
+    redirectIfNotLoggedIn(request, response);
 
     request.session(false).invalidate();
 
     response.redirect("/");
+    return null;
+
+  };
+
+  public static Route changePassword = (Request request, Response response) -> {
+
+    redirectIfNotLoggedIn(request, response);
+
+    AdminDao dao = new AdminDao();
+    Map<String, Object> body;
+
+    try {
+      body = Utilities.parseUrlEncodedBody(request.body());
+    } catch (UnsupportedEncodingException e) {
+      response.redirect("/admin");
+      return null;
+    }
+
+    if (!body.containsKey("prev-pwd") || !body.containsKey("next-pwd") || !body.containsKey("conf-pwd")) {
+      response.redirect("/admin");
+      return null;
+    }
+
+    String password = hashAndSaltPassword((String) body.get("prev-pwd"));
+    String username = request.session().attribute("username");
+
+    Admin admin = dao.getAdminByUsernameAndPassword(username, password);
+
+    if (admin == null) {
+      response.redirect("/admin");
+      return null;
+    }
+
+    if (!body.get("next-pwd").equals(body.get("conf-pwd"))) {
+      response.redirect("/");
+      return null;
+    }
+
+    admin.setHashedAndSaltedPassword(hashAndSaltPassword((String) body.get("next-pwd")));
+
+    dao.editItem(admin.getId(), admin);
+
+    response.redirect("/admin");
     return null;
 
   };

@@ -10,7 +10,7 @@ import java.util.List;
 
 public class AdminDao implements Dao<Admin> {
 
-  private Connection conn = null;
+  private Connection conn;
 
   public AdminDao() {
 
@@ -49,7 +49,7 @@ public class AdminDao implements Dao<Admin> {
 
     try {
 
-      PreparedStatement ps = conn.prepareStatement("SELECT * FROM post WHERE id=?;");
+      PreparedStatement ps = conn.prepareStatement("SELECT * FROM admin WHERE id=?;");
       ps.setObject(1, id);
       rs = ps.executeQuery();
 
@@ -78,7 +78,19 @@ public class AdminDao implements Dao<Admin> {
 
   @Override
   public Admin editItem(int id, Admin item) {
-    return null;
+
+    try {
+      PreparedStatement ps = conn.prepareStatement("UPDATE admin SET password=? WHERE username=?");
+      ps.setString(1, item.getHashedAndSaltedPassword());
+      ps.setString(2, item.getUsername());
+
+      ps.executeUpdate();
+
+    } catch (SQLException e) {
+      throw new RuntimeException("Error trying to execute statement on database");
+    }
+
+    return item;
   }
 
   public Admin getAdminByUsernameAndPassword(String username, String password) {

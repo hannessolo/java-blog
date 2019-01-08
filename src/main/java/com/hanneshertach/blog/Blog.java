@@ -40,6 +40,10 @@ public class Blog {
 
     post(Path.MEDIA_UPLOAD_ROUTE, "multipart/form-data", MediaController.uploadMedia);
     get(Path.GET_MEDIA_ROUTE, MediaController.serveMedia);
+    get(Path.MEDIA_VIEW_ROUTE, MediaController.viewAllMedia);
+    delete(Path.MEDIA_DELETE_ROUTE, MediaController.deleteMediaItem);
+
+    post(Path.PASSWORD_RESET_PATH, AdminController.changePassword);
 
     get(Path.ABOUT_ROUTE, StaticPageController.serveAboutPage);
 
