@@ -36,6 +36,11 @@
         <div id="title">
           <h1>blog.</h1>
         </div>
+        <div id="invisible-hamburger">
+          <i class="material-icons icon-large">
+            menu
+          </i>
+        </div>
       </div>
       <div id="content">
         $bodyContent

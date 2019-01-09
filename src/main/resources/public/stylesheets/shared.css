@@ -354,3 +354,7 @@ textarea {
 .pwd-box {
   margin-bottom: 5px;
 }
+
+#invisible-hamburger {
+  opacity: 0;
+}
