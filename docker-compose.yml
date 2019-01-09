@@ -7,9 +7,9 @@ services:
     ports:
       - "4567:4567"
     labels:
-      caddy.targetpath: "/"
-      caddy.targetport: "4567"
-      caddy.address: "blog.hanneshertach.com"
+      - "caddy.targetpath=/"
+      - "caddy.targetport=4567"
+      - "caddy.address=blog.hanneshertach.com"
   db:
     image: mysql
     volumes:
