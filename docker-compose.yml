@@ -20,3 +20,8 @@ services:
     environment:
       MYSQL_ROOT_HOST: "%"
       MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+
+networks:
+  default:
+    external:
+      name: web
