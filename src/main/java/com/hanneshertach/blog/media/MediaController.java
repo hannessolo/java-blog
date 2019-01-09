@@ -22,7 +22,7 @@ import spark.utils.IOUtils;
 
 public class MediaController {
 
-  static final String FILE_FOLDER_ROUTE = "/tmp/uploads/";
+  static final String FILE_FOLDER_ROUTE = "/etc/uploads";
 
   public static Route uploadMedia = (Request request, Response response) -> {
 

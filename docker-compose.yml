@@ -15,6 +15,7 @@ services:
     volumes:
       - ./database/db_data:/var/lib/mysql
       - ./database:/etc/database-init
+      - ./uploads:/etc/uploads
     command: --init-file /etc/database-init/initdb.sql
     environment:
       MYSQL_ROOT_HOST: "%"
