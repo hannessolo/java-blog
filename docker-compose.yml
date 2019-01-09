@@ -10,6 +10,7 @@ services:
       - "caddy.targetpath=/"
       - "caddy.targetport=4567"
       - "caddy.address=blog.hanneshertach.com"
+      - "caddy.proxy.transparent="
   db:
     image: mysql
     volumes:
