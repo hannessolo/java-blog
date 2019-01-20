@@ -6,6 +6,8 @@ services:
     build: .
     ports:
       - "4567:4567"
+    volumes:
+      - ./uploads:/uploads
     labels:
       - "caddy.targetpath=/"
       - "caddy.targetport=4567"
@@ -16,7 +18,6 @@ services:
     volumes:
       - ./database/db_data:/var/lib/mysql
       - ./database:/etc/database-init
-      - ./uploads:/uploads
     command: --init-file /etc/database-init/initdb.sql
     environment:
       MYSQL_ROOT_HOST: "%"
