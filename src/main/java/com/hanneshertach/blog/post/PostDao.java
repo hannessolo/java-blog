@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLTimeoutException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,11 +22,17 @@ public class PostDao implements Dao<Post> {
     } catch (Exception e) {
       throw new RuntimeException("Error fetching database driver.");
     }
-
-    try {
-      conn = DriverManager.getConnection("jdbc:mysql://db:3306/blog", "root", "");
-    } catch (Exception e) {
-      throw new RuntimeException("Error connecting to database.");
+    long start = System.currentTimeMillis();
+    while (conn == null) {
+      try {
+        conn = DriverManager.getConnection("jdbc:mysql://db:3306/blog", "root", "");
+      } catch (Exception e) {
+        System.out.println("Error connecting to database");
+        e.printStackTrace();
+        if (System.currentTimeMillis() > start + 10000) {
+          throw new RuntimeException("Timeout connecting to database.");
+        }
+      }
     }
 
   }
