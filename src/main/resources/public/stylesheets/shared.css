@@ -369,3 +369,11 @@ textarea {
   padding: 16px;
   max-width: 80vw;
 }
+
+p > a {
+  color: #4896ff;
+}
+
+li > a {
+  color: #4896ff;
+}

@@ -2,6 +2,9 @@
 #@mainLayout()
 <div class="container" id="main-text-container">
   <h2 id="post-title">Contact Me</h2>
+  <div id="post-body">
+    <p>You can contact me at hanneshertach (at) gmail (dot) com</p>
+  </div>
 
 </div>
 #end

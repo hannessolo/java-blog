@@ -2,6 +2,17 @@
 #@mainLayout()
 <div class="container" id="main-text-container">
   <h2 id="post-title">About Me</h2>
+  <div id="post-body">
+    <p>Hi! I am Hannes, a student at Imperial College London. I write this blog, mainly about
+      Software Engineering, Cyber Security and DevOps. Check out the following:</p>
+    <ul>
+      <li><a href="https://www.hanneshertach.com">https://www.hanneshertach.com</a></li>
+      <li><a href="https://github.com/hannessolo">https://github.com/hannessolo</a></li>
+      <li><a href="https://digitrecognize.hanneshertach.com">https://digitrecognize.hanneshertach.com</a></li>
+      <li><a href="https://linkedin.com/in/hanneshertach/">https://linkedin.com/in/hanneshertach/</a></li>
+    </ul>
+    <p>Enjoy your stay on my website!</p>
+  </div>
 
 </div>
 #end
