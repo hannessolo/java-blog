@@ -3,6 +3,7 @@ package com.hanneshertach.blog.post;
 import com.hanneshertach.blog.database.Dao;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import org.commonmark.node.IndentedCodeBlock;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
@@ -53,8 +54,15 @@ public class Post {
 
   private String prettify(String contents) {
     Parser parser = Parser.builder().build();
+
+    HtmlRenderer renderer = HtmlRenderer.builder().attributeProviderFactory(attributeProviderContext -> (node, s, map) -> {
+      if (node instanceof IndentedCodeBlock) {
+        map.put("class", "code-background");
+      }
+    }).build();
+
     Node document = parser.parse(contents);
-    return HtmlRenderer.builder().build().render(document);
+    return renderer.render(document);
   }
 
   public String getDateString() {

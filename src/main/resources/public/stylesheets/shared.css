@@ -24,6 +24,7 @@ textarea {
   align-items: stretch;
   flex-direction: column;
   height: 100vh;
+  max-width: 100vw;
   flex-basis: content;
 }
 
@@ -41,6 +42,7 @@ textarea {
   justify-content: center;
   height: max-content;
   flex: 1;
+  overflow: hidden;
 }
 
 #hamburger {
@@ -357,4 +359,14 @@ textarea {
 
 #invisible-hamburger {
   opacity: 0;
+}
+
+.code-background {
+  background-color: #f6f8fa;
+  border-radius: 3px;
+  font-size: 90%;
+  line-height: 1.45;
+  overflow: auto;
+  padding: 16px;
+  max-width: 80vw;
 }
