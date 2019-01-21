@@ -364,7 +364,7 @@ textarea {
 .code-background {
   background-color: #f6f8fa;
   border-radius: 3px;
-  line-height: 1.45;
+  font-size: 12pt;
   overflow: auto;
   padding: 16px;
   max-width: 80vw;
