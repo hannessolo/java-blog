@@ -361,7 +361,7 @@ textarea {
   opacity: 0;
 }
 
-.code-background {
+code .code-background {
   background-color: #f6f8fa;
   border-radius: 3px;
   font-size: 12pt;
