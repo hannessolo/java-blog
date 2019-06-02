@@ -12,10 +12,10 @@ jobs:
     addons:
       ssh_known_hosts:
       - hanneshertach.com
-    before_deploy:
+    before_script:
     - openssl aes-256-cbc -K $encrypted_b6400612d065_key -iv $encrypted_b6400612d065_iv -in lightsailkey.pem.enc -out lightsailkey.pem -d
     - eval "$(ssh-agent -s)"
     - mv lightsailkey.pem ~/.ssh/lightsailkey.pem
     - chmod 600 ~/.ssh/lightsailkey.pem
-    deploy:
+    script:
     - "cat .travisdeploy.sh | ssh -i ~/.ssh/lightsailkey.pem ubuntu@hanneshertach.com"
