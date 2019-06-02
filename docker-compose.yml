@@ -4,6 +4,7 @@ services:
     depends_on:
       - db
     build: .
+    restart: always
     ports:
       - "4567:4567"
     volumes:
@@ -15,6 +16,7 @@ services:
       - "caddy.proxy.transparent="
   db:
     image: mysql
+    restart: always
     volumes:
       - ./database/db_data:/var/lib/mysql
       - ./database:/etc/database-init
