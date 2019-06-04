@@ -186,7 +186,7 @@ textarea {
   z-index:9998;
 }
 
-#menu-link {
+.menu-link {
   font-family: Futura, "Trebuchet MS", sans-serif;
   padding: 20px;
   justify-content: center;
@@ -197,7 +197,7 @@ textarea {
   transition: ease-in-out 500ms;
 }
 
-#menu-link:hover {
+.menu-link:hover {
   background-color: springgreen;
   border-radius: 5px;
 }

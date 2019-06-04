@@ -2,6 +2,15 @@
   <!DOCTYPE html>
   <html>
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141515779-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-141515779-1');
+    </script>
     <title>$title</title>
     <meta name="viewport" content="width=device-width, initial-scale=0.8">
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
@@ -11,17 +20,17 @@
   <body>
     <div id="menu" class="hidden">
       <a href="/">
-        <div id="menu-link">
+        <div class="menu-link">
           HOME
         </div>
       </a>
       <a href="/about">
-        <div id="menu-link">
+        <div class="menu-link">
           ABOUT
         </div>
       </a>
       <a href="/contact">
-        <div id="menu-link">
+        <div class="menu-link">
           CONTACT
         </div>
       </a>
