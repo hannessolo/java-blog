@@ -12,7 +12,7 @@
       fetch("/media/" + mediaName + "/delete", {
         method: "delete"
       }).then(function (v) {
-        location = "/admin";
+        location = "/media/view";
       });
 
     });

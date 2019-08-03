@@ -377,3 +377,37 @@ p > a {
 li > a {
   color: #4896ff;
 }
+
+.picture-preview {
+  height: 30vh;
+  width: 30vh;
+  border: 1px solid gray;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+}
+
+.picture-preview-pic {
+  width: 100%;
+  height: 100%;
+  background: no-repeat center;
+  background-size: contain;
+}
+
+.picture-page-container {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.black-background {
+  background-color: black;
+}
+
+.picture-delete {
+  color: white;
+  margin-left: 5px;
+  margin-top: 8px;
+}

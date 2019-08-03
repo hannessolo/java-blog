@@ -1,17 +1,21 @@
 #parse("template/layout.vm")
 #@mainLayout()
-<div class="container">
+<div class="container picture-page-container">
   #foreach($mediaItem in $media)
-    <div class="article-preview">
-      <div class="row-container">
-        <h3 class="preview-title">
-          <a href="/media/view/$mediaItem">$mediaItem</a>
-        </h3>
+    <a href="/media/view/$mediaItem">
+      <div class="black-background picture-preview">
+        <div class="picture-preview-pic" style="
+            background-image: url('/media/view/$mediaItem');">
+          <div class="row-container">
+            <div class="delete-button" mediaName="$mediaItem">
+              <i class="material-icons icon-large picture-delete">
+                delete
+              </i>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="row-container">
-        <button class="admin-button red delete-button" mediaName="$mediaItem">Delete</button>
-      </div>
-    </div>
+    </a>
   #end
   <script type="application/javascript" src="/javascripts/mediaScript.js"></script>
 </div>
