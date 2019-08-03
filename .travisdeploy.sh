@@ -2,4 +2,4 @@
 sudo su deploy
 cd ~/blog/blog
 git pull
-docker-compose down && docker-compose up -d;
+docker-compose down && mvn package && docker-compose up --build -d;
