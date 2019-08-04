@@ -10,6 +10,7 @@ import java.sql.SQLTimeoutException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class PostDao implements Dao<Post> {
 
@@ -194,11 +195,24 @@ public class PostDao implements Dao<Post> {
     List<Post> truncatedPosts = new ArrayList<>();
     List<Post> posts = getItems();
 
+    // Pattern to remove links
+    Pattern removeLinks = Pattern.compile("\\[|\\]");
+
     for (Post post : posts) {
+      // remove links from content
+      String contentNoLinks = removeLinks
+          .matcher(
+              post.getContent()
+                  .substring(0, Math.min(post.getContent().length(), len))
+          )
+          .replaceAll("") + "...";
+
+      System.out.println(contentNoLinks);
+
       truncatedPosts.add(new Post(
           post.getId(),
           post.getTitle(),
-          post.getContent().substring(0, Math.min(post.getContent().length(), len)) + "...",
+          contentNoLinks,
           post.getDateObject(),
           post.getDao()
       ));
