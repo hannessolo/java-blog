@@ -195,8 +195,11 @@ public class PostDao implements Dao<Post> {
     List<Post> truncatedPosts = new ArrayList<>();
     List<Post> posts = getItems();
 
-    // Pattern to remove links
-    Pattern removeLinks = Pattern.compile("\\[|\\]");
+    // Pattern to remove links, matches [this is a link](https://link)
+    // Group 1 is [this is a link]
+    // Group 2 is this is a link
+    // Group 3 is (https://link)
+    Pattern removeLinks = Pattern.compile("(\\[([^\\]]*)])(\\([^\\)]*\\))");
 
     for (Post post : posts) {
       // remove links from content
@@ -205,7 +208,7 @@ public class PostDao implements Dao<Post> {
               post.getContent()
                   .substring(0, Math.min(post.getContent().length(), len))
           )
-          .replaceAll("") + "...";
+          .replaceAll("$2") + "...";
 
       System.out.println(contentNoLinks);
 
