@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/hannessolo/blog.svg?branch=master)](https://travis-ci.com/hannessolo/blog)
 
-Repository containing the code for the blog, hosted at https://blog.hanneshertach.com.
+Repository containing the code for my old blog. No longer used.
 
 Built using the JavaSpark web framework.
 
